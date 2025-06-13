@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asef Drink House</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Asef Drink House
+                <span class="badge bg-gold ms-2">PRO</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-home me-1"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-book me-1"></i>
+                            Check Recipes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-lightbulb me-1"></i> Techniques</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+                            <i class="fas fa-tags me-1"></i> Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">By Alcohol</a></li>
+                            <li><a class="dropdown-item" href="#">By Glass</a></li>
+                            <li><a class="dropdown-item" href="#">By Flavour</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <div class="input-group search-container">
+                        <input type="text" class="form-control search-input" placeholder="Search Your Desired Drink">
+                        <button class="btn btn-outline-light search-btn" type="button">
+                            <i class="fas fa-search">
+                            </i>
+                        </button>
+                    </div>
+                    <button class="btn btn-gold ms-3">
+                        <i class="fas fa-user me-1"></i>
+                        Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold text-white mb-4 animate__animated animate__fadeInDown"> Welcome to Asef
+                        Drink Shop</h1>
+                    <p class="lead text-white mb-5 animate__animated animate__fadeInDown">Access the world's largest
+                        cocktail database with professional tools for bartenders and enthusiast</p>
+                    <div class="d-flex gap-3 animate__ animate__fadeInDown animate__delay-2s">
+                        <button class="btn btn-gold btn-lg px-4">
+                            <i class="fas fa-cocktail me-2"></i>Explore Premium
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="stats-bar py-4 bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-count="10000">0</h3>
+                        <p class="stat-label"> Cocktails</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-count="150">0</h3>
+                        <p class="stat-label">Techniques</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number" data-count="25000">0</h3>
+                        <p class="stat-label">Members</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number" id="group-count">0</h3>
+                        <p class="stat-label">In Your Group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main-content py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <section class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="section-title"><i class="fas fa-star me-2"></i>Popular Cocktails</h2>
+                            <a href="#" class="btn btn-sm btn-outline-dark">
+                                View All
+                            </a>
+                        </div>
+                        <div class="row" id="featured-cocktails"></div>
+                    </section>
+                    <section class="mb-5">
+                        <div class="explorer-header bg-dark text-white p-4 rounded-top">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h3 class="mb-0"><i class="fas fa-search me-2"></i> Explore Cocktails</h3>
+                                <div class="d-flex gap-2">
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button"
+                                            id="filterDropdown" data-bs-toggle="dropdown">
+                                            <i class="fas fa-filter me-1"></i> Filter</button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li></li>
+                                            <li>
+                                                <h6 class="dropdown-header">By Alcohol</h6>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Vodka</a></li>
+                                            <li><a class="dropdown-item" href="#">Gin</a></li>
+                                            <li><a class="dropdown-item" href="#">Rum</a></li>
+                                            <li><a class="dropdown-item" href="#">Tequila</a></li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li>
+                                                <h6 class="dropdown-header">By Category</h6>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Classics</a></li>
+                                            <li><a class="dropdown-item" href="#">Contemporary</a></li>
+                                            <li><a class="dropdown-item" href="#">Tiki</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button"
+                                            id="sortDropdown" data-bs-toggle="dropdown">
+                                            <i class="fas fa-sort me-1"></i> Sort
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="#">Popularity</a></li>
+                                            <li><a class="dropdown-item" href="#">A-Z</a></li>
+                                            <li><a class="dropdown-item" href="#">Difficulty</a></li>
+                                            <li><a class="dropdown-item" href="#">Rating</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="explorer-body bg-light p-4 rounded-bottom">
+                            <div class="row" id="cocktails-container">
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <nav aria-label="Cocktail pagination">
+                                    <ul class="pagination" id="pagination">
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sticky-top" style="top: 80px;">
+                        <div class="card mb-4">
+                            <div class="card-header bg-dark text-white">
+                                <h5 class="mb-0"><i class="fas fa-users me-2"></i> Your Group Selection</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="group-selection">
+                                    <p class="text-muted">No drinks selected yet</p>
+                                    <ul class="list-group" id="group-items"></ul>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-light">
+                                <button class="btn btn-primary w-100" id="save-group">Save Group</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="mb-5">
+                <h2 class="section-title mb-4">
+                    <i class="fas fa-tools me-2"></i> Professional Tools
+                </h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="tool-card h-100">
+                            <div class="tool-icon bg-primary">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <h4>Inventory Manager</h4>
+                            <p>Track your bar stock, get usage analytics, and receive low-stock alerts for your
+                                ingredients.</p>
+                            <button class="btn btn-sm btn-outline-primary">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tool-card h-100">
+                            <div class="tool-icon bg-success">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Menu Analytics</h4>
+                            <p>Discover which cocktails perform best with sales tracking and customer preference data
+                            </p>
+                            <button class="btn btn-sm btn-outline-success">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="tool-card h-100">
+                            <div class="tool-icon bg-gold">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4>Recipe Hub</h4>
+                            <p>Create, test, and refine your own cocktail recipes with our professional development
+                                tools.</p>
+                            <button class="btn btn-sm btn-outline-warning">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="premium-cta bg-dark text-white p-5 rounded-3 mb-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h2 class="mb-3">Upgrade to Asef Drink House PRO</h2>
+                        <p class="lead mb-4">Get access to advanced features, exclusive content, and professional tools
+                            designed for serious mixologists and bar professionals.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle text-gold me-2"></i> Unlimited recipe saves
+                            </li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-gold me-2"></i> Advanced inventory
+                                management</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-gold me-2"></i> Commercial use license
+                            </li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-gold me-2"></i> Priority support</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 text-center">
+                        <div class="pricing-card bg-white rounded p-4">
+                            <h3 class="text-muted">$19.99<span class="text-muted small">/month</span></h3>
+                            <p class="text-muted">or $199/year (save 17%)</p>
+                            <button class="btn btn-outline-secondary w-100">Start Free Trial</button>
+                            <p class="small text-muted mt-2 mb-0">7-day trial, no credit card required</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div class="modal fade" id="cocktailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cocktailModalLabel">Cocktail Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modal-body-content">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-gold">
+                        <i class="fas fa-bookmark me-1"></i> Save Recipe
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <small>Just now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="toast-message">
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-gold mb-4">Asef Drink House</h5>
+                    <p>The professional's choice for cocktail recipes, techniques, and bar management tools since 2015.
+                    </p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h6 class="text-uppercase text-gold mb-4">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Recipes</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Techniques</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Ingredients</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Equipment</a></li>
+                        <li><a href="#" class="text-white">Glossary</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h6 class="text-uppercase text-gold mb-4">Company</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Press</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Partners</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="text-uppercase text-gold mb-4">Newsletter</h6>
+                    <p>Subscribe to receive professional tips, new recipes, and special offers.</p>
+                    <form class="mt-4">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email" aria-label="Your email">
+                            <button class="btn btn-gold" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">© 2025 Asef Drink House. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">
+                        <a href="#" class="text-white">Terms of Service</a> |
+                        <a href="#" class="text-white">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
